@@ -1,0 +1,218 @@
+
+/* seleccionamos todos los elementos de la pagina */
+* {
+    box-sizing: border-box;
+}
+
+/* damos estilo al body */
+body {
+    font-family: 'Roboto', sans-serif;
+    background-image : url("fondo.jpg" ) ;
+    background-repeat: no-repeat;
+        background-size: cover;
+    
+        /* Debe incluir la altura*/
+        height: 100vh;
+    
+    
+}
+
+
+/* le damos estilo al main (centramos) */
+main {
+    max-width: 800px;
+    width: 90%;
+    margin: auto;
+    padding: 40px ;
+}
+
+/* agregamos columnas al formulario */
+.formulario {
+    /* background-color: rgb(176, 127, 255); */
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* dos columnas */
+    gap: 20px; /*le da el espacio entre las filas y la columna   */
+}
+
+
+/* aca le damos estilo a las etiquetas */
+.formulario__label {
+    display: block; /* display de tipo bloque ocupa el ancho del bloque */
+    font-weight: 700;/* fuente en negrita */
+    padding: 10px; 
+    cursor: pointer;/* haciendo click en el label pone el cursor en su correspondiente input */
+}
+
+/* se posiciono el imput (para luego poner una posicion absoluta los iconos asi se posicionan adentro)*/
+.formulario__grupo-input {
+    position: relative;
+}
+
+/* se le da estilo a los imput  */
+.formulario__input {
+    width: 100%;
+    background: #fff;
+    border: 3px solid transparent;
+    border-radius: 3px;
+    height: 45px;
+    line-height: 45px;
+    padding: 0 40px 0 10px;
+    transition: .3s ease all;
+}
+
+
+/* estilo cuando se hace clik  */
+.formulario__input:focus {
+    border: 3px solid #00060e;
+    outline: none;
+    box-shadow: 3px 0px 30px rgba(163, 163, 163, 0.4);
+}
+
+
+/* mostramos el error cuando el campo esta mal completado */
+.formulario__input-error {
+    font-size: 12px;
+    margin-bottom: 0;
+    display: none;
+}
+
+.formulario__input-error-activo {
+    display: block;
+}
+
+
+/* estilo al icono */
+.formulario__validacion-estado {
+    position: absolute;
+    right: 10px;
+    bottom: 15px;
+    z-index: 100;
+    font-size: 16px;
+    opacity: 0;
+}
+
+
+.formulario_checkbox{
+    margin-right: 10px;
+}
+
+.check{
+    color:#fff;
+    background: #00000089;
+}
+
+/* tanto el error como el boton abarca dos columnas */
+.formulario__grupo-terminos, 
+.formulario__mensaje,
+.formulario__grupo-btn-enviar {
+    grid-column: span 2;
+}
+
+/* estilo al mensaje de error */
+.formulario__mensaje {
+    height: 45px;
+    line-height: 45px;
+    background: #d30808;
+    padding: 0 15px;
+    border-radius: 3px;
+     display: none; 
+}
+
+/* cuando el mensaje este activo se va a ver el msj */
+.formulario__mensaje-activo {
+    display: block;
+}
+
+/* centramos el mensaje */
+.formulario__mensaje p {
+    margin: 0;
+}
+
+/* se acomoda el boton */
+.formulario__grupo-btn-enviar {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* se le da estilo al boton */
+
+.formulario__btn {
+    height: 45px;
+    line-height: 45px;
+    width: 30%;
+    background: #000;
+    color: #fff;
+    font-weight: bold;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    transition: .1s ease all;
+}
+
+
+/* estilo cuando se hace pasa el cursor */
+.formulario__btn:hover {
+    box-shadow: 3px 0px 30px rgba(163, 163, 163, 1);
+}
+
+/* estilo mensaje de exito */
+
+.formulario__mensaje-exito {
+   
+    height: 45px;
+        line-height: 45px;
+        background: #119200;
+        padding: 0 15px;
+        border-radius: 3px;
+        display: none;
+}
+
+/* muestra los estilo cuando el mensaje activo */
+.formulario__mensaje-exito-activo {
+    display: block;
+}
+
+/* ---------------estilos para validacion-------------------  */
+
+/* color verde del label si el el campo se lleno correctamente */
+.formulario__grupo-correcto .formulario__validacion-estado {
+    color: #1ed12d;
+    opacity: 1;
+}
+/* color rojo del label */
+.formulario__grupo-incorrecto .formulario__label {
+    color: #dc0b0b;
+}
+
+/* color rojo del icono */
+.formulario__grupo-incorrecto .formulario__validacion-estado {
+    color: #dc0b0b;
+    opacity: 1;
+}
+
+/* color rojo del input */
+.formulario__grupo-incorrecto .formulario__input {
+    border: 3px solid #dc0b0b;
+}
+
+/* ------------se cambia segun el tamaño de la pantalla------------ */
+@media screen and (max-width: 800px) {
+    .formulario {
+        grid-template-columns: 1fr;
+    }
+
+    .formulario__grupo-terminos,
+    .formulario__mensaje,
+    .formulario__grupo-btn-enviar {
+        grid-column: 1;
+    }
+
+    .formulario__btn {
+        width: 100%;
+    }
+}
+
+
+
+
